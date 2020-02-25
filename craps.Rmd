@@ -1,0 +1,36 @@
+---
+title: "Craps"
+author: "Saul Soto"
+date: "2/25/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(purrr)
+library(tidyverse)
+
+dice <- 1:6
+
+sample(dice, size = 1)
+
+roll_one_die <- function(x) {
+  test <- sample(1:x, 1)
+  return(test)
+}
+roll_one_die(2)
+
+roll_die <- function() {
+  sample(1:6, size = 1)
+}
+roll_two_die <- function() {
+  roll_die() + roll_die()
+}
+```
+
+```{r}
+map_int(1:10, ~ roll_two_die())
+```
+
+
+
